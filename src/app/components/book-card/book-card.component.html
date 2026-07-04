@@ -1,0 +1,22 @@
+<div class="book-card">
+
+  <div class="book-card-image-container">
+      @if (book.logoImg) {
+        <img [src]="book.logoImg" alt="An image of the book">
+      } @else {
+        <div class="book-card-image-container-picture"></div>
+      }
+  </div>
+
+  <div class="book-card-badge" [class.book-card-badge--read]="book.isRead">{{ book.isRead ? 'Read' : 'Unread' }}</div>
+
+
+  <h1 class="book-card-title">
+    {{ book.name }}
+  </h1>
+  <p class="book-card-author">
+    {{ book.author }}
+  </p>
+
+  <p class="book-card-description">{{book.description}}</p>
+</div>
