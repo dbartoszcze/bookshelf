@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input, Input} from '@angular/core';
 import {Book, DEFAULT_BOOK} from '../../models/book.model';
 
 @Component({
@@ -8,6 +8,6 @@ import {Book, DEFAULT_BOOK} from '../../models/book.model';
   styleUrl: './book-card.component.scss'
 })
 export class BookCardComponent {
-  @Input({required: true}) book: Book = DEFAULT_BOOK;
+  book = input.required<Book>();
 
 }
