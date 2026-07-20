@@ -1,11 +1,3 @@
-
-export const DEFAULT_BOOK: Book = {
-  title: "",
-  author: "",
-  description: "",
-  isRead: false
-}
-
 export interface Book {
   title: string,
   author: string,

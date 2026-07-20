@@ -1,5 +1,5 @@
-import {Component, input, Input} from '@angular/core';
-import {Book, DEFAULT_BOOK} from '../../models/book.model';
+import {Component, input} from '@angular/core';
+import {Book} from '../../models/book.model';
 
 @Component({
   selector: 'app-book-card',
@@ -9,5 +9,4 @@ import {Book, DEFAULT_BOOK} from '../../models/book.model';
 })
 export class BookCardComponent {
   book = input.required<Book>();
-
 }

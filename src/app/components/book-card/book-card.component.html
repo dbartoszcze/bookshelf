@@ -1,15 +1,10 @@
 <div class="book-card">
 
   <div class="book-card-image-container">
-      @if (book().logoImg) {
-        <img [src]="book().logoImg" alt="An image of the book">
-      } @else {
-        <div class="book-card-image-container-picture"></div>
-      }
+        <img [src]="book().logoImg" alt="Cover of {{book().title}}">
   </div>
 
   <div class="book-card-badge" [class.book-card-badge--read]="book().isRead">{{ book().isRead ? 'Read' : 'Unread' }}</div>
-
 
   <h1 class="book-card-title">
     {{ book().title }}
