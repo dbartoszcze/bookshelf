@@ -1,0 +1,17 @@
+<div class="book-card">
+
+  <div class="book-card-image-container">
+        <img [src]="book().logoImg" alt="Cover of {{book().title}}">
+  </div>
+
+  <div class="book-card-badge" [class.book-card-badge--read]="book().isRead">{{ book().isRead ? 'Read' : 'Unread' }}</div>
+
+  <h1 class="book-card-title">
+    {{ book().title }}
+  </h1>
+  <p class="book-card-author">
+    {{ book().author }}
+  </p>
+
+  <p class="book-card-description">{{book().description}}</p>
+</div>
