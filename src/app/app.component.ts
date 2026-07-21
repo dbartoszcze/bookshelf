@@ -1,23 +1,66 @@
 import { Component } from '@angular/core';
-import {BookCardComponent} from './components/book-card/book-card.component';
 import {Book} from './models/book.model';
+import {BookListComponent} from './components/book-list/book-list.component';
 
 @Component({
   selector: 'app-root',
   imports: [
-    BookCardComponent
+    BookListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
 
-  book: Book = {
-    title: "It",
-    author: "Stephen King",
-    description: "It is a 1986 horror novel by American author Stephen King. This is his 22nd book and his 17th novel written under his own name. The story follows seven children as they are terrorized by an evil entity called It, which exploits the fears of its victims to disguise itself while hunting its prey. It is a monstrous, shapeshifting predator that primarily appears in the form of Pennywise the Dancing Clown to attract its preferred prey of young children.",
-    isRead: false,
-    logoImg:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII="
-  }
-
+  books: Book[] = [
+    {
+      title: 'It',
+      author: 'Stephen King',
+      description:
+        'Seven children are terrorized by an ancient evil entity that takes the form of Pennywise the Dancing Clown. Years later, they reunite to confront their greatest fears.',
+      isRead: false
+    },
+    {
+      title: 'The Shining',
+      author: 'Stephen King',
+      description:
+        'Jack Torrance becomes the winter caretaker of the isolated Overlook Hotel, where supernatural forces slowly consume his sanity.',
+      isRead: true
+    },
+    {
+      title: '1984',
+      author: 'George Orwell',
+      description:
+        'A dystopian novel about a society ruled by surveillance, censorship, and the manipulation of truth by Big Brother.',
+      isRead: true
+    },
+    {
+      title: 'The Hobbit',
+      author: 'J.R.R. Tolkien',
+      description:
+        'Bilbo Baggins embarks on an unexpected adventure with a company of dwarves to reclaim their homeland from the dragon Smaug.',
+      isRead: false
+    },
+    {
+      title: 'Dune',
+      author: 'Frank Herbert',
+      description:
+        'Paul Atreides must survive on the desert planet Arrakis while becoming a central figure in a struggle over the galaxy’s most valuable resource.',
+      isRead: true
+    },
+    {
+      title: 'The Witcher: The Last Wish',
+      author: 'Andrzej Sapkowski',
+      description:
+        'A collection of stories introducing Geralt of Rivia, a monster hunter navigating a morally complex fantasy world.',
+      isRead: false
+    },
+    {
+      title: 'The Pragmatic Programmer',
+      author: 'Andrew Hunt & David Thomas',
+      description:
+        'A timeless guide for software developers covering best practices, problem-solving techniques, and professional craftsmanship.',
+      isRead: true
+    }
+  ]
 }
