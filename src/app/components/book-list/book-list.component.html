@@ -1,5 +1,5 @@
 <div class="book-list-container">
-  @for (book of books(); track $index){
+  @for (book of books(); track book.id){
     <app-book-card [book]="book"/>
   } @empty {
     <div class="book-list-container__empty">The list of the books are empty!</div>

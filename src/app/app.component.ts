@@ -14,6 +14,7 @@ export class AppComponent {
 
   books: Book[] = [
     {
+      id: 1,
       title: 'It',
       author: 'Stephen King',
       description:
@@ -21,6 +22,7 @@ export class AppComponent {
       isRead: false
     },
     {
+      id: 2,
       title: 'The Shining',
       author: 'Stephen King',
       description:
@@ -28,6 +30,7 @@ export class AppComponent {
       isRead: true
     },
     {
+      id: 3,
       title: '1984',
       author: 'George Orwell',
       description:
@@ -35,6 +38,7 @@ export class AppComponent {
       isRead: true
     },
     {
+      id: 4,
       title: 'The Hobbit',
       author: 'J.R.R. Tolkien',
       description:
@@ -42,6 +46,7 @@ export class AppComponent {
       isRead: false
     },
     {
+      id: 5,
       title: 'Dune',
       author: 'Frank Herbert',
       description:
@@ -49,6 +54,7 @@ export class AppComponent {
       isRead: true
     },
     {
+      id: 6,
       title: 'The Witcher: The Last Wish',
       author: 'Andrzej Sapkowski',
       description:
@@ -56,6 +62,7 @@ export class AppComponent {
       isRead: false
     },
     {
+      id: 7,
       title: 'The Pragmatic Programmer',
       author: 'Andrew Hunt & David Thomas',
       description:
