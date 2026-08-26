@@ -1,6 +1,5 @@
 import {Injectable, signal} from '@angular/core';
 import {Book} from '../models/book.model';
-import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -66,7 +65,6 @@ export class BookService {
     }
   ]);
 
-  getBooks():Observable<Book[]>{
-    return of(this._books());
-  }
+  books = this._books.asReadonly()
+
 }
