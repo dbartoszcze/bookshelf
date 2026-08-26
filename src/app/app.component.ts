@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
   }
 
   private initBooks():void{
-    this.books.set(this.bookService.getBooks())
+    this.bookService.getBooks()
+      .subscribe(
+        books => {
+          this.books.set(books ?? []);
+        }
+      )
   }
 }
