@@ -13,19 +13,15 @@ import {BookService} from './services/book.service';
 })
 export class AppComponent implements OnInit {
 
-  bookService = inject(BookService);
+  private bookService = inject(BookService);
 
   books = signal<Book[]>([]);
 
   ngOnInit() {
-    this._initBooks()
+    this.initBooks()
   }
 
-  _initBooks():void{
-    this.bookService.getBooks().subscribe({
-      next: (books: Book[]) => {
-        this.books.set(books)
-      }
-    })
+  private initBooks():void{
+    this.books.set(this.bookService.getBooks())
   }
 }
