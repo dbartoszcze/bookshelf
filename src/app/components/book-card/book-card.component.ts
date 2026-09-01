@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, computed, input} from '@angular/core';
 import {Book} from '../../models/book.model';
 
 @Component({
@@ -9,12 +9,14 @@ import {Book} from '../../models/book.model';
 })
 export class BookCardComponent {
   book = input.required<Book>();
-  accentIndex = input.required<number>();
+  accentIndex = input<number>(0);
 
 
-
+  accentClass = computed(() => {
+    return `book-card-image-background-accent${this.accentIndex() % 4}`;
+  })
 
   protected get placeholderImageUrl(): string {
-    return '../../../assets/icons/book.svg'
+    return '/assets/icons/book.svg'
   }
 }
