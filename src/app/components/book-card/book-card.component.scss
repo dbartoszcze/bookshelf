@@ -1,12 +1,16 @@
+@use 'index' as tokens;
+
 .book-card {
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-  padding:24px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: tokens.$typography-font-family-base;
+  font-size: tokens.$typography-font-size-base;
+  padding:  tokens.$spacing-pd-md;
 
-
-  background-color: #fff;
-  border: 1px solid #e5e7eb;
+  background-color: tokens.$colors-color-surface;
+  border: 1px solid tokens.$colors-color-border;
+  border-radius: tokens.$spacing-border-md;
 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06),
   0 8px 24px rgba(0, 0, 0, 0.04);
@@ -20,37 +24,56 @@
     0 12px 32px rgba(0, 0, 0, 0.08);
   }
 
+  &-image-background{
+    &-accent1{
+      background-color: tokens.$colors-color-accent-1;
+    }
+    &-accent2{
+      background-color: tokens.$colors-color-accent-2;
+    }
+    &-accent3{
+      background-color: tokens.$colors-color-accent-3;
+    }
+    &-accent4{
+      background-color: tokens.$colors-color-accent-4;
+    }
+  }
+
+
+
   &-image-container{
     width: 100%;
-    background-color: #D4DE95;
     height: 150px;
-    border-bottom: 3px solid #3D4127;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 
-    &-picture{
-      width: 64px;
-      height: 64px;
-      background: url('../../../assets/icons/book.svg') no-repeat center;
-      background-size: contain;
+    img{
+      width: 100%;
+      max-height: 100px;
     }
   }
+
+
 
   &-badge {
     display: inline-flex;
     align-items: center;
-    margin-top: 24px;
-    padding: 16px;
-    border-radius: 999px;
-    background-color: #fef2f2;
-    color: #b91c1c;
+    margin-top: tokens.$spacing-mg-md;
+    margin-bottom: tokens.$spacing-mg-md;
+    padding: tokens.$spacing-pd-md;
+    color: tokens.$colors-color-unread-text;
+    background-color: tokens.$colors-color-unread-bg;
 
     &--read{
-      background-color: #ecfdf5;
-      color: #047857;
+      color: tokens.$colors-color-read-text;
+      background-color: tokens.$colors-color-read-bg;
     }
+  }
+
+  &-title{
+    font-family: tokens.$typography-font-family-title;
+    font-size: tokens.$typography-font-size-big;
+    margin-bottom: tokens.$spacing-mg-sm;
   }
 }

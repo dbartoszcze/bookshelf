@@ -9,4 +9,12 @@ import {Book} from '../../models/book.model';
 })
 export class BookCardComponent {
   book = input.required<Book>();
+  accentIndex = input.required<number>();
+
+
+
+
+  protected get placeholderImageUrl(): string {
+    return '../../../assets/icons/book.svg'
+  }
 }

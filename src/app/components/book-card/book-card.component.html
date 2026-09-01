@@ -1,7 +1,12 @@
 <div class="book-card">
 
-  <div class="book-card-image-container">
-        <img [src]="book().logoImg" alt="Cover of {{book().title}}">
+  <div class="book-card-image-container"
+       [class.book-card-image-background-accent1]="accentIndex() % 4 === 0"
+       [class.book-card-image-background-accent2]="accentIndex() % 4 === 1"
+       [class.book-card-image-background-accent3]="accentIndex() % 4 === 2"
+       [class.book-card-image-background-accent4]="accentIndex() % 4 === 3"
+  >
+      <img [src]="book().logoImg ?? placeholderImageUrl" alt="Cover of {{book().title}}">
   </div>
 
   <div class="book-card-badge" [class.book-card-badge--read]="book().isRead">{{ book().isRead ? 'Read' : 'Unread' }}</div>
