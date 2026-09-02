@@ -15,8 +15,4 @@ export class BookCardComponent {
   accentClass = computed(() => {
     return `book-card-image-background-accent${this.accentIndex() % 4}`;
   })
-
-  protected get placeholderImageUrl(): string {
-    return '/assets/icons/book.svg'
-  }
 }
