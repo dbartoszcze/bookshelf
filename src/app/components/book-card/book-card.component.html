@@ -1,7 +1,12 @@
 <div class="book-card">
 
-  <div class="book-card-image-container">
-        <img [src]="book().logoImg" alt="Cover of {{book().title}}">
+  <div class="book-card-image-container {{accentClass()}}">
+    @if(book().logoImg){
+      <img [src]="book().logoImg"  alt="Cover of {{book().title}}">
+    } @else {
+      <div class="book-card-image-container-img-placeholder"> Cover of {{book().title}}</div>
+    }
+
   </div>
 
   <div class="book-card-badge" [class.book-card-badge--read]="book().isRead">{{ book().isRead ? 'Read' : 'Unread' }}</div>
