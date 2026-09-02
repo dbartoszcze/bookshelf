@@ -1,6 +1,6 @@
 <div class="book-list-container">
-  @for (book of books(); track book.id; let i = $index){
-    <app-book-card [book]="book" [accentIndex]="i"/>
+  @for (book of books(); track book.id; let i = $index) {
+    <app-book-card [book]="book" [accentIndex]="i" />
   } @empty {
     <div class="book-list-container__empty">The list of the books are empty!</div>
   }

@@ -1,17 +1,17 @@
 @use 'index' as tokens;
 
-.book-list-container{
+.book-list-container {
   background-color: tokens.$colors-color-bg;
   display: grid;
   grid-template-columns: auto;
   gap: tokens.$spacing-gap-md;
   padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md;
 
-  @include tokens.breakpoints-sm{
+  @include tokens.breakpoints-sm {
     grid-template-columns: 1fr 1fr;
   }
 
-  @include tokens.breakpoints-md{
+  @include tokens.breakpoints-md {
     grid-template-columns: 1fr 1fr;
     gap: tokens.$spacing-gap-lg;
   }
