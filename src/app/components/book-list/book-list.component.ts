@@ -17,6 +17,6 @@ export class BookListComponent {
 
   protected onViewDetailsButtonClick(book: Book): void {
     const { id } = book;
-    this.router.navigate([`/books/${id}`]);
+    this.router.navigate(['/books', id]);
   }
 }

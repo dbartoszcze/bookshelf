@@ -1,13 +1,12 @@
 <div class="details-container">
-  @if (book()) {
-    <div class="details-container-redirect-link">
-      <a href="/books">Back to books</a>
-    </div>
+  <a routerLink="/books">Back to books</a>
+
+  @if (book(); as book) {
+    <div class="details-container-redirect-link"></div>
     <div class="details-container-book-card">
-      <app-book-card [book]="book()!" [accentIndex]="book()?.id! - 1" />
+      <app-book-card [book]="book" [accentIndex]="book.id - 1" />
     </div>
   } @else {
-    <a href="/books">Back to books</a>
     <p class="details-container-not-found-text">Book not found.</p>
   }
 </div>
