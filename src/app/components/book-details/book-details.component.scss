@@ -1,0 +1,22 @@
+@use 'index' as tokens;
+
+.details-container {
+  padding: tokens.$spacing-pd-xl;
+  background-color: tokens.$colors-color-bg;
+  min-height: 100vh;
+  font-family: tokens.$typography-font-family-base;
+
+  @include tokens.breakpoints-sm {
+    padding: tokens.$spacing-pd-md;
+  }
+
+  &-book-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-not-found-text {
+    margin-top: tokens.$spacing-mg-md;
+    font-weight: 700;
+  }
+}

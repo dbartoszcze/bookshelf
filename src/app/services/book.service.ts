@@ -65,4 +65,8 @@ export class BookService {
   ]);
 
   books = this._books.asReadonly();
+
+  getBookById(id: string): Book | undefined {
+    return this._books().find((book) => book.id === Number(id));
+  }
 }
