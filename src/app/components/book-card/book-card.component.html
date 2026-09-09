@@ -19,4 +19,10 @@
   </p>
 
   <p class="book-card-description">{{ book().description }}</p>
+
+  @if (withRedirectToDetailsButton()) {
+    <button class="book-card-details-button" (click)="onViewDetailsButtonClick(book())">
+      View details
+    </button>
+  }
 </div>

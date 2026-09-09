@@ -1,0 +1,34 @@
+@use 'index' as tokens;
+
+.details-container {
+  padding: tokens.$spacing-pd-xl;
+  background-color: tokens.$colors-color-bg;
+  min-height: 100vh;
+  font-family: tokens.$typography-font-family-base;
+
+  @include tokens.breakpoints-sm {
+    padding: tokens.$spacing-pd-md;
+  }
+
+  &-redirect-link {
+    text-decoration: none;
+
+    font-size: tokens.$typography-font-size-base;
+    font-weight: 700;
+    margin-top: tokens.$spacing-mg-sm;
+    margin-bottom: tokens.$spacing-mg-lg;
+    a {
+      color: tokens.$colors-color-ink;
+    }
+  }
+
+  &-book-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-not-found-text {
+    margin-top: tokens.$spacing-mg-md;
+    font-weight: 700;
+  }
+}

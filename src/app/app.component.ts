@@ -1,16 +1,10 @@
-import { Component, inject, Signal } from '@angular/core';
-import { Book } from './models/book.model';
-import { BookListComponent } from './components/book-list/book-list.component';
-import { BookService } from './services/book.service';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [BookListComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  private bookService = inject(BookService);
-
-  books: Signal<Book[]> = this.bookService.books;
-}
+export class AppComponent {}

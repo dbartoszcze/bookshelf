@@ -1,6 +1,7 @@
 @use 'index' as tokens;
 
 .book-card {
+  max-width: 450px;
   cursor: pointer;
   display: grid;
   grid-template-columns: 1fr;
@@ -81,5 +82,21 @@
     font-family: tokens.$typography-font-family-title;
     font-size: tokens.$typography-font-size-big;
     margin-bottom: tokens.$spacing-mg-sm;
+  }
+
+  &-details-button {
+    margin-top: tokens.$spacing-mg-lg;
+    margin-bottom: tokens.$spacing-mg-sm;
+    background-color: tokens.$colors-color-bg;
+    border: 1px solid tokens.$colors-color-border;
+    font-family: tokens.$typography-font-family-base;
+    padding-top: tokens.$spacing-pd-sm;
+    padding-bottom: tokens.$spacing-pd-sm;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: tokens.$colors-color-border;
+    }
   }
 }
