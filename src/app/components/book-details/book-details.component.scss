@@ -10,18 +10,6 @@
     padding: tokens.$spacing-pd-md;
   }
 
-  &-redirect-link {
-    text-decoration: none;
-
-    font-size: tokens.$typography-font-size-base;
-    font-weight: 700;
-    margin-top: tokens.$spacing-mg-sm;
-    margin-bottom: tokens.$spacing-mg-lg;
-    a {
-      color: tokens.$colors-color-ink;
-    }
-  }
-
   &-book-card {
     display: flex;
     justify-content: center;
