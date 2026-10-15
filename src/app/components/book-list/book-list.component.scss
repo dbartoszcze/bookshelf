@@ -23,17 +23,17 @@
         box-shadow 0.2s ease,
         transform 0.1s ease;
       &:hover {
-        background-color: #48637a;
+        background-color: tokens.$colors-color-btn-bgc-hover;
       }
       &:focus {
         outline: none;
       }
       &:focus-visible {
-        outline: 3px solid #93b1ce;
+        outline: 3px solid tokens.$colors-color-btn-outline-focus;
         outline-offset: 2px;
       }
       &:active {
-        background-color: #394e61;
+        background-color: tokens.$colors-color-btn-bgc-active;
         transform: scale(0.98);
       }
     }

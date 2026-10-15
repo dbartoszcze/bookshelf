@@ -12,9 +12,6 @@
 }
 
 .book-form-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
   border: none;
   border-radius: 12px;
   width: 90%;
@@ -23,8 +20,8 @@
   padding: tokens.$spacing-pd-lg;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  background-color: #ffffff;
-  color: #333333;
+  background-color: tokens.$colors-color-surface;
+  color: tokens.$colors-color-modal-color;
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.45);
@@ -161,17 +158,17 @@
         box-shadow 0.2s ease,
         transform 0.1s ease;
       &:hover {
-        background-color: #48637a;
+        background-color: tokens.$colors-color-btn-bgc-hover;
       }
       &:focus {
         outline: none;
       }
       &:focus-visible {
-        outline: 3px solid #93b1ce;
+        outline: 3px solid tokens.$colors-color-btn-outline-focus;
         outline-offset: 2px;
       }
       &:active {
-        background-color: #394e61;
+        background-color: tokens.$colors-color-btn-bgc-active;
         transform: scale(0.98);
       }
     }

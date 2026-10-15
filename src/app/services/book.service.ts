@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Book } from '../models/book.model';
+import { BookOutputData } from '../components/book-form/book-form.component';
 
 @Injectable({
   providedIn: 'root',
@@ -70,7 +71,9 @@ export class BookService {
     return this._books().find((book) => book.id === Number(id));
   }
 
-  public addBook(book: Book): void {
+  public addBook(newBook: BookOutputData): void {
+    const { title, description, author } = newBook;
+    const book: Book = { author, description, title, isRead: false, id: Date.now() };
     this._books.update((books) => [...books, book]);
   }
 }

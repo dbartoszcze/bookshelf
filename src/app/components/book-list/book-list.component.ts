@@ -32,10 +32,7 @@ export class BookListComponent {
   }
 
   protected onSaveBook($bookOutputData: BookOutputData): void {
-    const { title, description, author } = $bookOutputData;
-    const newBook: Book = { author, description, title, isRead: false, id: Date.now() };
-
-    this.bookService.addBook(newBook);
+    this.bookService.addBook($bookOutputData);
 
     this.isBookFormOpen.set(false);
   }

@@ -3,7 +3,7 @@
 
   @if (book(); as book) {
     <div class="details-container-book-card">
-      <app-book-card [book]="book" [accentIndex]="book.id - 1" />
+      <app-book-card [book]="book" />
     </div>
   } @else {
     <p class="details-container-not-found-text">Book not found.</p>

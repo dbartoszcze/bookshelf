@@ -9,12 +9,11 @@ import { Book } from '../../models/book.model';
 })
 export class BookCardComponent {
   book = input.required<Book>();
-  accentIndex = input<number>(0);
   withRedirectToDetailsButton = input<boolean>(false);
   viewDetailsButtonClicked = output<Book>();
 
   accentClass = computed(() => {
-    return `book-card-image-background-accent${this.accentIndex() % 4}`;
+    return `book-card-image-background-accent${(this.book().id - 1) % 4}`;
   });
 
   onViewDetailsButtonClick(book: Book): void {

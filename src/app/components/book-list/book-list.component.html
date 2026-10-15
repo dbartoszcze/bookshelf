@@ -5,10 +5,9 @@
     </button>
   </div>
   <div class="book-list-container__list">
-    @for (book of books(); track book.id; let i = $index) {
+    @for (book of books(); track book.id) {
       <app-book-card
         [book]="book"
-        [accentIndex]="i"
         [withRedirectToDetailsButton]="true"
         (viewDetailsButtonClicked)="onViewDetailsButtonClick($event)"
       />
