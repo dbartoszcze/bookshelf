@@ -1,0 +1,90 @@
+<dialog [open]="isOpen()" class="book-form-modal">
+  <div class="book-form-modal-header">
+    <h5 class="book-form-modal-header__title">Add book</h5>
+    <button type="button" class="book-form-modal-header__close-button" (click)="close()">
+      &times;
+    </button>
+  </div>
+  <div class="book-form-modal-content">
+    <form [formGroup]="bookForm" class="book-form-modal-content__form">
+      <div
+        class="book-form-modal-content__form-input-container"
+        [class.has-error]="isControlTouchedAndValid('title')"
+      >
+        <div class="book-form-modal-content__form-input-container__field-wrapper">
+          <input
+            id="title-input"
+            type="text"
+            class=""
+            placeholder="Book title"
+            formControlName="title"
+          />
+          <label for="title-input">Title</label>
+        </div>
+        @if (isControlTouchedAndValid('title')) {
+          <div class="book-form-modal-content__form-input-container__error-wrapper">
+            <span class="book-form-modal-content__form-input-container__error-wrapper-text">
+              Title required
+            </span>
+          </div>
+        }
+      </div>
+
+      <div
+        class="book-form-modal-content__form-input-container"
+        [class.has-error]="isControlTouchedAndValid('author')"
+      >
+        <div class="book-form-modal-content__form-input-container__field-wrapper">
+          <input
+            id="author-input"
+            type="text"
+            id="author"
+            placeholder="Book author"
+            formControlName="author"
+          />
+          <label for="author-input">Author</label>
+        </div>
+        @if (isControlTouchedAndValid('author')) {
+          <div class="book-form-modal-content__form-input-container__error-wrapper">
+            <span class="book-form-modal-content__form-input-container__error-wrapper-text">
+              Author required
+            </span>
+          </div>
+        }
+      </div>
+
+      <div
+        class="book-form-modal-content__form-input-container"
+        [class.has-error]="isControlTouchedAndValid('description')"
+      >
+        <div class="book-form-modal-content__form-input-container__field-wrapper">
+          <input
+            id="description-input"
+            type="text"
+            id="description"
+            placeholder="Book description"
+            formControlName="description"
+          />
+          <label for="description-input">Description</label>
+        </div>
+        @if (isControlTouchedAndValid('description')) {
+          <div class="book-form-modal-content__form-input-container__error-wrapper">
+            <span class="book-form-modal-content__form-input-container__error-wrapper-text">
+              Description required
+            </span>
+          </div>
+        }
+      </div>
+    </form>
+  </div>
+  <div class="book-form-modal-footer">
+    <button
+      type="button"
+      class="book-form-modal-footer__button book-form-modal-footer__close-button"
+      (click)="close()"
+    >
+      Cancel
+    </button>
+    <button type="button" class="book-form-modal-footer__button" (click)="save()">Save</button>
+  </div>
+</dialog>

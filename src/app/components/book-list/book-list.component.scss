@@ -2,23 +2,66 @@
 
 .book-list-container {
   background-color: tokens.$colors-color-bg;
-  display: grid;
-  grid-template-columns: auto;
-  gap: tokens.$spacing-gap-md;
-  padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md;
+  min-height: 100vh;
+  &__button {
+    display: flex;
+    justify-content: end;
+    padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md 0;
+    &-adding-new-book {
+      font-size: tokens.$typography-font-size-base;
+      font-family: tokens.$typography-font-family-base;
+      padding: tokens.$spacing-pd-sm tokens.$spacing-pd-md;
+      background-color: tokens.$colors-color-accent-4;
+      color: tokens.$colors-color-bg;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+      &:hover {
+        background-color: #48637a;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        outline: 3px solid #93b1ce;
+        outline-offset: 2px;
+      }
+      &:active {
+        background-color: #394e61;
+        transform: scale(0.98);
+      }
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: auto;
+    gap: tokens.$spacing-gap-md;
+    padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md;
 
-  @include tokens.breakpoints-sm {
-    grid-template-columns: 1fr 1fr;
+    @include tokens.breakpoints-sm {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include tokens.breakpoints-md {
+      grid-template-columns: 1fr 1fr;
+      gap: tokens.$spacing-gap-lg;
+    }
+
+    @include tokens.breakpoints-xl {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: tokens.$spacing-gap-lg;
+      padding: tokens.$spacing-pd-xl tokens.$spacing-pd-lg;
+    }
   }
 
-  @include tokens.breakpoints-md {
-    grid-template-columns: 1fr 1fr;
-    gap: tokens.$spacing-gap-lg;
-  }
-
-  @include tokens.breakpoints-xl {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: tokens.$spacing-gap-lg;
-    padding: tokens.$spacing-pd-xl tokens.$spacing-pd-lg;
+  &__empty {
+    font-size: tokens.$typography-font-size-big;
+    font-family: tokens.$typography-font-family-base;
   }
 }

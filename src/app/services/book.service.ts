@@ -5,7 +5,7 @@ import { Book } from '../models/book.model';
   providedIn: 'root',
 })
 export class BookService {
-  private _books = signal<Book[]>([
+  private readonly _books = signal<Book[]>([
     {
       id: 1,
       title: 'It',
@@ -66,7 +66,11 @@ export class BookService {
 
   books = this._books.asReadonly();
 
-  getBookById(id: string): Book | undefined {
+  public getBookById(id: string): Book | undefined {
     return this._books().find((book) => book.id === Number(id));
+  }
+
+  public addBook(book: Book): void {
+    this._books.update((books) => [...books, book]);
   }
 }

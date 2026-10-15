@@ -1,0 +1,183 @@
+@use 'index' as tokens;
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: none;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  margin-top: tokens.$spacing-mg-lg;
+  padding: tokens.$spacing-pd-lg;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #333333;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: tokens.$spacing-pd-xs 0 tokens.$spacing-pd-md;
+
+    &__title {
+      font-weight: 600;
+      font-size: tokens.$typography-font-size-big;
+      letter-spacing: 1.1px;
+      font-family: tokens.$typography-font-family-base;
+    }
+
+    &__close-button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: none;
+    }
+  }
+
+  &-content {
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: tokens.$spacing-gap-md;
+      &-input-container {
+        display: flex;
+        flex-direction: column;
+        gap: tokens.$spacing-gap-xs;
+        width: 100%;
+        &__field-wrapper {
+          position: relative;
+          display: flex;
+          flex-direction: column-reverse;
+          width: 100%;
+
+          input {
+            padding: tokens.$spacing-pd-md tokens.$spacing-pd-sm;
+            font-size: tokens.$typography-font-size-base;
+            color: tokens.$colors-color-ink;
+            border: 1px solid tokens.$colors-color-border;
+            border-radius: 0.375rem;
+            outline: none;
+            transition:
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+
+            &::placeholder {
+              color: tokens.$colors-color-ink;
+              opacity: 0.5;
+            }
+
+            &:focus {
+              border-color: tokens.$colors-color-accent-4;
+              box-shadow: 0 0 0 1px tokens.$colors-color-accent-4;
+            }
+            &:focus + label {
+              color: tokens.$colors-color-accent-2;
+              font-size: tokens.$typography-font-size-small;
+            }
+          }
+
+          label {
+            font-size: tokens.$typography-font-size-base;
+            font-weight: 500;
+            color: tokens.$colors-color-ink;
+            margin-bottom: tokens.$spacing-mg-sm;
+            transition:
+              color 0.2s ease,
+              font-size 0.2s ease;
+          }
+        }
+
+        &__error-wrapper {
+          display: flex;
+          align-items: center;
+          animation: slideDown 0.2s ease forwards;
+          &-text {
+            padding-left: tokens.$spacing-pd-xs;
+            font-size: tokens.$typography-font-size-small;
+            color: tokens.$colors-color-accent-1;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &-input-container.has-error input {
+        border-color: tokens.$colors-color-accent-1;
+
+        &:focus {
+          box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+        }
+
+        &:focus + label {
+          color: tokens.$colors-color-accent-1;
+        }
+      }
+
+      &-input-container.has-error label {
+        color: tokens.$colors-color-accent-1;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: tokens.$spacing-gap-md;
+    padding: tokens.$spacing-pd-md 0 tokens.$spacing-pd-xs;
+    &__button {
+      font-size: tokens.$typography-font-size-base;
+      font-family: tokens.$typography-font-family-base;
+      padding: tokens.$spacing-pd-sm tokens.$spacing-pd-md;
+      background-color: tokens.$colors-color-accent-4;
+      color: tokens.$colors-color-bg;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+      &:hover {
+        background-color: #48637a;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        outline: 3px solid #93b1ce;
+        outline-offset: 2px;
+      }
+      &:active {
+        background-color: #394e61;
+        transform: scale(0.98);
+      }
+    }
+
+    &__close-button {
+      background-color: tokens.$colors-color-accent-1;
+    }
+  }
+}
