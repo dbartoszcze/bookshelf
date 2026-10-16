@@ -5,7 +5,7 @@
   (close)="onDialogClosed()"
 >
   <div class="book-form-modal-header">
-    <h5 id="book-form-title" class="book-form-modal-header__title" autofocus>Add book</h5>
+    <h5 id="book-form-title" class="book-form-modal-header__title">Add book</h5>
     <button
       aria-label="Close dialog"
       type="button"
@@ -16,13 +16,19 @@
     </button>
   </div>
   <div class="book-form-modal-content">
-    <form [formGroup]="bookForm" class="book-form-modal-content__form" (submit)="save()">
+    <form [formGroup]="bookForm" class="book-form-modal-content__form" (ngSubmit)="save()">
       <div
         class="book-form-modal-content__form-input-container"
         [class.has-error]="isControlTouchedAndInvalid('title')"
       >
         <div class="book-form-modal-content__form-input-container__field-wrapper">
-          <input id="title-input" type="text" placeholder="Book title" formControlName="title" />
+          <input
+            id="title-input"
+            type="text"
+            placeholder="Book title"
+            formControlName="title"
+            autofocus
+          />
           <label for="title-input">Title</label>
         </div>
         @if (isControlTouchedAndInvalid('title')) {
