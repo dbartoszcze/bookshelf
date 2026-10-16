@@ -1,9 +1,9 @@
 import { Component, inject, signal, Signal } from '@angular/core';
-import { Book } from '../../models/book.model';
+import { Book, BookOutputData } from '../../models/book.model';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { BookService } from '../../services/book.service';
 import { Router } from '@angular/router';
-import { BookFormComponent, BookOutputData } from '../book-form/book-form.component';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-book-list',

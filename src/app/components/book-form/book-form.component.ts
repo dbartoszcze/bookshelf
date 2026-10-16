@@ -1,15 +1,13 @@
 import { Component, effect, ElementRef, inject, input, output, viewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { noWhiteSpacesValidator } from '../../utils/validators/noWhiteSpacesValidator';
-import { Book } from '../../models/book.model';
+import { BookOutputData } from '../../models/book.model';
 
 interface BookFormModel {
   title: FormControl<string>;
   description: FormControl<string>;
   author: FormControl<string>;
 }
-
-export type BookOutputData = Pick<Book, 'title' | 'description' | 'author'>;
 
 @Component({
   selector: 'app-book-form',
@@ -45,6 +43,14 @@ export class BookFormComponent {
   protected onDialogClosed() {
     this.bookForm.reset();
     this.closeModal.emit();
+  }
+
+  protected close(): void {
+    const dialog = this.dialogRef()?.nativeElement;
+    if (!dialog) {
+      return;
+    }
+    dialog.close();
   }
 
   protected save(): void {

@@ -6,3 +6,5 @@ export interface Book {
   isRead: boolean;
   logoImg?: string;
 }
+
+export type BookOutputData = Pick<Book, 'title' | 'description' | 'author'>;

@@ -1,6 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Book } from '../models/book.model';
-import { BookOutputData } from '../components/book-form/book-form.component';
+import { Book, BookOutputData } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root',
