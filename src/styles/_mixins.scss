@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'colors';
 @use 'typography';
 @use 'spacing';
@@ -18,17 +19,17 @@
     box-shadow 0.2s ease,
     transform 0.1s ease;
   &:hover {
-    background-color: colors.$color-btn-bgc-hover;
+    background-color: color.adjust($bg, $lightness: -10%);
   }
   &:focus {
     outline: none;
   }
   &:focus-visible {
-    outline: 3px solid colors.$color-btn-outline-focus;
+    outline: 3px solid color.adjust($bg, $lightness: 20%);
     outline-offset: 2px;
   }
   &:active {
-    background-color: colors.$color-btn-bgc-active;
+    background-color: color.adjust($bg, $lightness: -18%);
     transform: scale(0.98);
   }
 }

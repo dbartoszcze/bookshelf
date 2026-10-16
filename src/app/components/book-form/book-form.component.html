@@ -3,12 +3,11 @@
   class="book-form-modal"
   aria-labelledby="book-form-title"
   (close)="onDialogClosed()"
-  (submit)="save()"
 >
   <div class="book-form-modal-header">
-    <h5 id="book-form-title" class="book-form-modal-header__title">Add book</h5>
+    <h5 id="book-form-title" class="book-form-modal-header__title" autofocus>Add book</h5>
     <button
-      aria-label="Close icon"
+      aria-label="Close dialog"
       type="button"
       class="book-form-modal-header__close-button"
       (click)="close()"
@@ -17,7 +16,7 @@
     </button>
   </div>
   <div class="book-form-modal-content">
-    <form [formGroup]="bookForm" class="book-form-modal-content__form">
+    <form [formGroup]="bookForm" class="book-form-modal-content__form" (submit)="save()">
       <div
         class="book-form-modal-content__form-input-container"
         [class.has-error]="isControlTouchedAndInvalid('title')"

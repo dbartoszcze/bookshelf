@@ -1,6 +1,6 @@
 import { Component, effect, ElementRef, inject, input, output, viewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { noWhiteSpacesValidator } from '../../utils/validators/noWhiteSpacesValidator';
+import { notBlankValidator } from '../../utils/validators/notBlankValidator';
 import { BookOutputData } from '../../models/book.model';
 
 interface BookFormModel {
@@ -64,13 +64,13 @@ export class BookFormComponent {
   private buildForm(): FormGroup<BookFormModel> {
     return this.fb.group<BookFormModel>({
       author: this.fb.nonNullable.control('', {
-        validators: [noWhiteSpacesValidator()],
+        validators: [notBlankValidator()],
       }),
       title: this.fb.nonNullable.control('', {
-        validators: [noWhiteSpacesValidator()],
+        validators: [notBlankValidator()],
       }),
       description: this.fb.nonNullable.control('', {
-        validators: [noWhiteSpacesValidator()],
+        validators: [notBlankValidator()],
       }),
     });
   }

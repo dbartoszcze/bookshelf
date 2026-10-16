@@ -48,6 +48,9 @@
       outline: none;
       border: none;
       background: none;
+      &:focus-visible {
+        outline: 1px solid tokens.$colors-color-btn-outline-focus;
+      }
     }
   }
 
