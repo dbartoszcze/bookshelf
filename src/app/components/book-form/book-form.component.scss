@@ -1,0 +1,158 @@
+@use 'index' as tokens;
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-form-modal {
+  border: none;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  padding: tokens.$spacing-pd-lg;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background-color: tokens.$colors-color-surface;
+  color: tokens.$colors-color-ink;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: tokens.$spacing-pd-xs 0 tokens.$spacing-pd-md;
+
+    &__title {
+      font-weight: 600;
+      font-size: tokens.$typography-font-size-big;
+      letter-spacing: 1.1px;
+      font-family: tokens.$typography-font-family-base;
+    }
+
+    &__close-button {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: none;
+      &:focus-visible {
+        outline: 1px solid tokens.$colors-color-accent-4;
+      }
+    }
+  }
+
+  &-content {
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: tokens.$spacing-gap-md;
+      &-input-container {
+        display: flex;
+        flex-direction: column;
+        gap: tokens.$spacing-gap-xs;
+        width: 100%;
+        &__field-wrapper {
+          position: relative;
+          display: flex;
+          flex-direction: column-reverse;
+          width: 100%;
+
+          input,
+          textarea {
+            padding: tokens.$spacing-pd-md tokens.$spacing-pd-sm;
+            font-size: tokens.$typography-font-size-base;
+            color: tokens.$colors-color-ink;
+            border: 1px solid tokens.$colors-color-border;
+            font-family: tokens.$typography-font-family-base;
+            border-radius: 0.375rem;
+            outline: none;
+            transition:
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+
+            &::placeholder {
+              color: tokens.$colors-color-ink;
+              opacity: 0.5;
+            }
+
+            &:focus {
+              border-color: tokens.$colors-color-accent-4;
+              box-shadow: 0 0 0 1px tokens.$colors-color-accent-4;
+            }
+            &:focus + label {
+              color: tokens.$colors-color-accent-2;
+              font-size: tokens.$typography-font-size-small;
+            }
+          }
+
+          label {
+            font-size: tokens.$typography-font-size-base;
+            font-weight: 500;
+            color: tokens.$colors-color-ink;
+            margin-bottom: tokens.$spacing-mg-sm;
+            transition:
+              color 0.2s ease,
+              font-size 0.2s ease;
+          }
+        }
+
+        &__error-wrapper {
+          display: flex;
+          align-items: center;
+          animation: slideDown 0.2s ease forwards;
+          &-text {
+            padding-left: tokens.$spacing-pd-xs;
+            font-size: tokens.$typography-font-size-small;
+            color: tokens.$colors-color-accent-1;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &-input-container.has-error input,
+      &-input-container.has-error textarea {
+        border-color: tokens.$colors-color-accent-1;
+
+        &:focus {
+          box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+        }
+
+        &:focus + label {
+          color: tokens.$colors-color-accent-1;
+        }
+      }
+
+      &-input-container.has-error label {
+        color: tokens.$colors-color-accent-1;
+      }
+      &-buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: tokens.$spacing-gap-md;
+        padding: tokens.$spacing-pd-md 0 tokens.$spacing-pd-xs;
+
+        &__button {
+          @include tokens.mixins-button();
+        }
+
+        &__close-button {
+          @include tokens.mixins-button(tokens.$colors-color-accent-1);
+        }
+      }
+    }
+  }
+}

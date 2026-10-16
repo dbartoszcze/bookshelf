@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './book-details.component.scss',
 })
 export class BookDetailsComponent {
-  private bookService: BookService = inject(BookService);
+  private readonly bookService: BookService = inject(BookService);
 
   readonly id = input.required<string>();
   book = computed(() => this.bookService.getBookById(this.id()));

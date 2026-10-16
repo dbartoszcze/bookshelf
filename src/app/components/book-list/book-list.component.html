@@ -1,12 +1,24 @@
 <div class="book-list-container">
-  @for (book of books(); track book.id; let i = $index) {
-    <app-book-card
-      [book]="book"
-      [accentIndex]="i"
-      [withRedirectToDetailsButton]="true"
-      (viewDetailsButtonClicked)="onViewDetailsButtonClick($event)"
-    />
-  } @empty {
-    <div class="book-list-container__empty">The list of the books are empty!</div>
-  }
+  <div class="book-list-container__button">
+    <button class="book-list-container__button-adding-new-book" (click)="onOpenBookFormModal()">
+      Add book
+    </button>
+  </div>
+  <div class="book-list-container__list">
+    @for (book of books(); track book.id) {
+      <app-book-card
+        [book]="book"
+        [withRedirectToDetailsButton]="true"
+        (viewDetailsButtonClicked)="onViewDetailsButtonClick($event)"
+      />
+    } @empty {
+      <div class="book-list-container__empty">The list of the books are empty!</div>
+    }
+  </div>
 </div>
+
+<app-book-form
+  [isOpen]="isBookFormOpen()"
+  (closeModal)="onCloseModal()"
+  (saveBook)="onSaveBook($event)"
+/>

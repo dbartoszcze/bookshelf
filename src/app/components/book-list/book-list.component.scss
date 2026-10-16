@@ -2,23 +2,39 @@
 
 .book-list-container {
   background-color: tokens.$colors-color-bg;
-  display: grid;
-  grid-template-columns: auto;
-  gap: tokens.$spacing-gap-md;
-  padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md;
+  min-height: 100vh;
+  &__button {
+    display: flex;
+    justify-content: end;
+    padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md 0;
+    &-adding-new-book {
+      @include tokens.mixins-button();
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: auto;
+    gap: tokens.$spacing-gap-md;
+    padding: tokens.$spacing-pd-lg tokens.$spacing-pd-md;
 
-  @include tokens.breakpoints-sm {
-    grid-template-columns: 1fr 1fr;
+    @include tokens.breakpoints-sm {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include tokens.breakpoints-md {
+      grid-template-columns: 1fr 1fr;
+      gap: tokens.$spacing-gap-lg;
+    }
+
+    @include tokens.breakpoints-xl {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: tokens.$spacing-gap-lg;
+      padding: tokens.$spacing-pd-xl tokens.$spacing-pd-lg;
+    }
   }
 
-  @include tokens.breakpoints-md {
-    grid-template-columns: 1fr 1fr;
-    gap: tokens.$spacing-gap-lg;
-  }
-
-  @include tokens.breakpoints-xl {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: tokens.$spacing-gap-lg;
-    padding: tokens.$spacing-pd-xl tokens.$spacing-pd-lg;
+  &__empty {
+    font-size: tokens.$typography-font-size-big;
+    font-family: tokens.$typography-font-family-base;
   }
 }

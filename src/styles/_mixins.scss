@@ -1,0 +1,35 @@
+@use 'sass:color';
+@use 'colors';
+@use 'typography';
+@use 'spacing';
+
+@mixin button($bg: colors.$color-accent-4) {
+  font-size: typography.$font-size-base;
+  font-family: typography.$font-family-base;
+  padding: spacing.$pd-sm spacing.$pd-md;
+  background-color: $bg;
+  color: colors.$color-bg;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+  &:hover {
+    background-color: color.adjust($bg, $lightness: -10%);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 3px solid color.adjust($bg, $lightness: 20%);
+    outline-offset: 2px;
+  }
+  &:active {
+    background-color: color.adjust($bg, $lightness: -18%);
+    transform: scale(0.98);
+  }
+}
