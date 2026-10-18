@@ -75,4 +75,10 @@ export class BookService {
     const book: Book = { author, description, title, isRead: false, id: Date.now() };
     this._books.update((books) => [...books, book]);
   }
+
+  public updateBook(editedBook: Book): void {
+    this._books.update((books) =>
+      books.map((book) => (book.id === editedBook.id ? { ...editedBook } : book)),
+    );
+  }
 }
