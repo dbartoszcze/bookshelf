@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Book } from '../models/book.model';
+import { Book, BookOutputData } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root',
@@ -70,13 +70,20 @@ export class BookService {
     return this._books().find((book) => book.id === Number(id));
   }
 
-  public addBook(newBook: Book): void {
-    this._books.update((books) => [...books, newBook]);
+  public addBook(newBook: BookOutputData): void {
+    const book: Book = { ...newBook, isRead: false, id: Date.now() };
+    this._books.update((books) => [...books, book]);
   }
 
-  public updateBook(editedBook: Book): void {
+  public updateBook(id: number, changes: Partial<Omit<Book, 'id'>>): boolean {
+    if (!this._books().some((book) => book.id === Number(id))) {
+      return false;
+    }
+
     this._books.update((books) =>
-      books.map((book) => (book.id === editedBook.id ? { ...editedBook } : book)),
+      books.map((book) => (book.id === id ? { ...book, ...changes } : book)),
     );
+
+    return true;
   }
 }

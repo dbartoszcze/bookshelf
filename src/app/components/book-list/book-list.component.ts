@@ -15,6 +15,7 @@ export class BookListComponent {
   private readonly bookService = inject(BookService);
   private readonly router: Router = inject(Router);
   readonly books: Signal<Book[]> = this.bookService.books;
+  protected readonly editedBook = signal<Book | undefined>(undefined);
 
   readonly isBookFormOpen = signal<boolean>(false);
 
@@ -24,6 +25,7 @@ export class BookListComponent {
   }
 
   protected onOpenBookFormModal(): void {
+    this.editedBook.set(undefined);
     this.isBookFormOpen.set(true);
   }
 
@@ -35,5 +37,10 @@ export class BookListComponent {
     this.bookService.addBook($bookOutputData);
 
     this.isBookFormOpen.set(false);
+  }
+
+  protected onEditBook(book: Book): void {
+    this.editedBook.set(book);
+    this.isBookFormOpen.set(true);
   }
 }

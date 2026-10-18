@@ -1,4 +1,13 @@
-import { Component, effect, ElementRef, inject, input, output, viewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  output,
+  viewChild,
+} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { notBlankValidator } from '../../utils/validators/notBlankValidator';
 import { Book } from '../../models/book.model';
@@ -22,8 +31,11 @@ export class BookFormComponent {
   private readonly fb: FormBuilder = inject(FormBuilder);
 
   readonly isOpen = input<boolean>(false);
+  readonly editedBook = input<Book | undefined>(undefined);
   readonly closeModal = output<void>();
   readonly saveBook = output<Book>();
+
+  protected readonly title = computed(() => (this.editedBook() ? 'Edit Book' : 'Add Book'));
 
   readonly bookForm: FormGroup<BookFormModel> = this.buildForm();
 
@@ -40,6 +52,19 @@ export class BookFormComponent {
       } else if (!this.isOpen() && dialog.open) {
         dialog.close();
       }
+    });
+
+    effect(() => {
+      if (!this.isOpen()) {
+        return;
+      }
+
+      const book = this.editedBook();
+      this.bookForm.reset(
+        book
+          ? { title: book.title, author: book.author, description: book.description }
+          : undefined,
+      );
     });
   }
 
@@ -58,7 +83,6 @@ export class BookFormComponent {
 
   protected save(): void {
     if (this.bookForm.valid) {
-      console.log(this.bookForm.getRawValue());
       this.saveBook.emit(this.bookForm.getRawValue());
     } else {
       this.bookForm.markAllAsTouched();

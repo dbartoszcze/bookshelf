@@ -19,6 +19,7 @@
 
 <app-book-form
   [isOpen]="isBookFormOpen()"
+  [editedBook]="editedBook()"
   (closeModal)="onCloseModal()"
   (saveBook)="onSaveBook($event)"
 />
