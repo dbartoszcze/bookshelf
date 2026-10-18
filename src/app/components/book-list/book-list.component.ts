@@ -1,5 +1,5 @@
 import { Component, inject, signal, Signal } from '@angular/core';
-import { Book, BookOutputData } from '../../models/book.model';
+import { Book } from '../../models/book.model';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { BookService } from '../../services/book.service';
 import { Router } from '@angular/router';
@@ -31,7 +31,7 @@ export class BookListComponent {
     this.isBookFormOpen.set(false);
   }
 
-  protected onSaveBook($bookOutputData: BookOutputData): void {
+  protected onSaveBook($bookOutputData: Book): void {
     this.bookService.addBook($bookOutputData);
 
     this.isBookFormOpen.set(false);

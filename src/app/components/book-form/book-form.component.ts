@@ -1,12 +1,15 @@
 import { Component, effect, ElementRef, inject, input, output, viewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { notBlankValidator } from '../../utils/validators/notBlankValidator';
-import { BookOutputData } from '../../models/book.model';
+import { Book } from '../../models/book.model';
 
 interface BookFormModel {
   title: FormControl<string>;
   description: FormControl<string>;
   author: FormControl<string>;
+  id: FormControl<number>;
+  isRead: FormControl<boolean>;
+  logoImg: FormControl<string>;
 }
 
 @Component({
@@ -20,7 +23,7 @@ export class BookFormComponent {
 
   readonly isOpen = input<boolean>(false);
   readonly closeModal = output<void>();
-  readonly saveBook = output<BookOutputData>();
+  readonly saveBook = output<Book>();
 
   readonly bookForm: FormGroup<BookFormModel> = this.buildForm();
 
@@ -55,6 +58,7 @@ export class BookFormComponent {
 
   protected save(): void {
     if (this.bookForm.valid) {
+      console.log(this.bookForm.getRawValue());
       this.saveBook.emit(this.bookForm.getRawValue());
     } else {
       this.bookForm.markAllAsTouched();
@@ -63,6 +67,7 @@ export class BookFormComponent {
 
   private buildForm(): FormGroup<BookFormModel> {
     return this.fb.group<BookFormModel>({
+      id: this.fb.nonNullable.control(Date.now()),
       author: this.fb.nonNullable.control('', {
         validators: [notBlankValidator()],
       }),
@@ -72,6 +77,8 @@ export class BookFormComponent {
       description: this.fb.nonNullable.control('', {
         validators: [notBlankValidator()],
       }),
+      isRead: this.fb.nonNullable.control(false),
+      logoImg: this.fb.nonNullable.control(''),
     });
   }
 
